@@ -1,6 +1,6 @@
 Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.4
 
-# Extension for document types for the ISO 21597 ICDD Part 1 Container ontology
+# Extension for document types for the ISO 21597 ICDD Part 1 Container ontology [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5903118.svg)](https://doi.org/10.5281/zenodo.5903118) 
 
 ## Metadata
 * **IRI**
