@@ -23,10 +23,10 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.4
 * **Source**
   * [https://github.com/RUB-Informatik-im-Bauwesen/exdoc](https://github.com/RUB-Informatik-im-Bauwesen/exdoc)
 * **Ontology RDF**
-  * RDF ([https://raw.githubusercontent.com/RUB-Informatik-im-Bauwesen/exdoc/main/ExtendedDocument.ttl](turtle))
-  * RDF ([https://raw.githubusercontent.com/RUB-Informatik-im-Bauwesen/exdoc/main/ExtendedDocument.rdf](RDF/XML))
-  * RDF ([https://raw.githubusercontent.com/RUB-Informatik-im-Bauwesen/exdoc/main/ExtendedDocument.nt](N-Triples))
-  * RDF ([https://raw.githubusercontent.com/RUB-Informatik-im-Bauwesen/exdoc/main/ExtendedDocument.jsonld](JSON-LD))
+  * RDF ([https://rub-informatik-im-bauwesen.github.io/exdoc/ExtendedDocument.ttl](turtle))
+  * RDF ([https://rub-informatik-im-bauwesen.github.io/exdoc/ExtendedDocument.rdf](RDF/XML))
+  * RDF ([https://rub-informatik-im-bauwesen.github.io/exdoc/ExtendedDocument.nt](N-Triples))
+  * RDF ([https://rub-informatik-im-bauwesen.github.io/exdoc/ExtendedDocument.jsonld](JSON-LD))
 
 ## Description
 <p>This ontology provides an extension for document types for the <a href="https://www.iso.org/standard/74389.html">ISO 21597 ICDD Part 1</a>  Container ontology <code>ct: &lt;</code><a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#</a><code>&gt;</code>.</p>
