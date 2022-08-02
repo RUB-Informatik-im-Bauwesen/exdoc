@@ -35,7 +35,7 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.4
 <p>It also includes the <a href="#PayloadProxy">PayloadProxy</a> class as a subclass of the <code>ct:ExternalDocument</code> class for registering payload triples from the "payload triples" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.</p>
 
 ## History Note:
-<p>v0.3: adding <code>PayloadProxy</code> class</p>
+<p>v0.4: adding <code>PayloadProxy</code> class</p>
 <p>v0.3: adding <code>databaseMapping</code> reference</p>
 <p>v0.2: adding <code>databaseType</code> and <code>databaseQueryLanguage</code></p>
 <p>v0.1: initial ontology</p>
