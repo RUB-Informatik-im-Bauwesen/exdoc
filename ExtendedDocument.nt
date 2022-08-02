@@ -1,0 +1,88 @@
+# baseURI: https://w3id.org/exdoc
+# prefix: exdoc
+
+<https://w3id.org/exdoc#databaseType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/exdoc#ExternalDatabase> .
+<https://w3id.org/exdoc#databaseType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of database that is specified, e.g. MySQL, NoSQL, and others."@en-GB .
+<https://w3id.org/exdoc#databaseType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/exdoc#databaseType> <http://www.w3.org/2000/01/rdf-schema#label> "database type"@en-GB .
+<https://w3id.org/exdoc#databaseType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B070ac65fX2Dc32cX2D4585X2D8286X2D1ca421709e7e <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/exdoc#databaseConnectionString> .
+_:B070ac65fX2Dc32cX2D4585X2D8286X2D1ca421709e7e <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B070ac65fX2Dc32cX2D4585X2D8286X2D1ca421709e7e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B693ed4ecd24dce653a2077c8a1be0739 <https://schema.org/name> "Ruhr University Bochum" .
+_:B693ed4ecd24dce653a2077c8a1be0739 <https://schema.org/identifier> <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en> .
+<https://w3id.org/exdoc#databaseQueryLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/exdoc#databaseQueryLanguage> <http://www.w3.org/2000/01/rdf-schema#comment> "The query language, which can be used to retrieve information from the specified database."@en-GB .
+<https://w3id.org/exdoc#databaseQueryLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "query language"@en-GB .
+<https://w3id.org/exdoc#databaseQueryLanguage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Baed1caca1fdfb51c2437f9b931834f26 <https://schema.org/identifier> <https://orcid.org/0000-0002-6249-243X> .
+_:Baed1caca1fdfb51c2437f9b931834f26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+_:Baed1caca1fdfb51c2437f9b931834f26 <https://schema.org/memberOf> _:B693ed4ecd24dce653a2077c8a1be0739 .
+_:Baed1caca1fdfb51c2437f9b931834f26 <https://schema.org/email> <mailto:philipp.hagedorn-n6v@rub.de> .
+_:Baed1caca1fdfb51c2437f9b931834f26 <https://schema.org/name> "Philipp Hagedorn" .
+<https://w3id.org/exdoc#databaseMapping> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/exdoc#ExternalDatabase> .
+<https://w3id.org/exdoc#databaseMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "The mapping file, which allows for the generation of structured RDF-based data from the specified database. This file also needs to be specified within the respective container."@en-GB .
+<https://w3id.org/exdoc#databaseMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/exdoc#databaseMapping> <http://www.w3.org/2000/01/rdf-schema#label> "database mapping"@en-GB .
+<https://w3id.org/exdoc#databaseMapping> <http://www.w3.org/2000/01/rdf-schema#range> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#Document> .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/exdoc#ExternalDatabase> .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/2000/01/rdf-schema#comment> "a proxy document referencing to payload triples using the base uri of the triples file"@en-GB .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/2000/01/rdf-schema#label> "Payload Proxy"@en-GB .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument> .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B463d1f54X2Dbcd8X2D4e19X2Db0b1X2D58f8b8c4d0bc .
+<https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bbf19e0d9X2Dad9aX2D4102X2Db603X2Dad9d15c436f4 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/exdoc#databaseMapping> .
+_:Bbf19e0d9X2Dad9aX2D4102X2Db603X2Dad9d15c436f4 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bbf19e0d9X2Dad9aX2D4102X2Db603X2Dad9d15c436f4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bdd77f8bfX2Dca01X2D413cX2Da9c9X2Dd3099c5b43aa <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/exdoc#databaseType> .
+_:Bdd77f8bfX2Dca01X2D413cX2Da9c9X2Dd3099c5b43aa <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bdd77f8bfX2Dca01X2D413cX2Da9c9X2Dd3099c5b43aa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B463d1f54X2Dbcd8X2D4e19X2Db0b1X2D58f8b8c4d0bc <http://www.w3.org/2002/07/owl#onProperty> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url> .
+_:B463d1f54X2Dbcd8X2D4e19X2Db0b1X2D58f8b8c4d0bc <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B463d1f54X2Dbcd8X2D4e19X2Db0b1X2D58f8b8c4d0bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/exdoc#databaseConnectionString> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/exdoc#ExternalDatabase> .
+<https://w3id.org/exdoc#databaseConnectionString> <http://www.w3.org/2000/01/rdf-schema#comment> "A database connection string is a string that specifies information about a data source and the means of connecting to it from an ICDD. It can be passed to an underlying driver or provider in order to initiate the connection. Warning: The connection string holds sensitive information."@en-GB .
+<https://w3id.org/exdoc#databaseConnectionString> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/exdoc#databaseConnectionString> <http://www.w3.org/2000/01/rdf-schema#label> "connection string"@en-GB .
+<https://w3id.org/exdoc#databaseConnectionString> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/2000/01/rdf-schema#comment> "The database name is used to adress the correct mapping from the mapping file to a certain database within the connection string."@en-GB .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#name> .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/2000/01/rdf-schema#label> "database name"@en-GB .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/exdoc#databaseName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/exdoc#ExternalDatabase> .
+_:Bcdf007dfX2D9b97X2D41aaX2D88dbX2D14d6b44cc45f <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/exdoc#databaseName> .
+_:Bcdf007dfX2D9b97X2D41aaX2D88dbX2D14d6b44cc45f <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bcdf007dfX2D9b97X2D41aaX2D88dbX2D14d6b44cc45f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument> .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#comment> "a proxy document referencing to an external data source with a connection string"@en-GB .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/exdoc#PayloadProxy> .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#label> "External Database"@en-GB .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6934c6b0X2Dc0f5X2D4513X2Da116X2D6168680c00ff .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbf19e0d9X2Dad9aX2D4102X2Db603X2Dad9d15c436f4 .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcdf007dfX2D9b97X2D41aaX2D88dbX2D14d6b44cc45f .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bdd77f8bfX2Dca01X2D413cX2Da9c9X2Dd3099c5b43aa .
+<https://w3id.org/exdoc#ExternalDatabase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B070ac65fX2Dc32cX2D4585X2D8286X2D1ca421709e7e .
+<https://w3id.org/exdoc> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/exdoc> .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/issued> "2021-05-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/title> "Extension for document types for the ISO 21597 ICDD Part 1 Container ontology"@en-GB .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/description> "This ontology provides an extension for document types for the [ISO 21597 ICDD Part 1](https://www.iso.org/standard/74389.html)  Container ontology `ct: <`[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#](https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf)`>`.\n\nThe preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc).  \n\nIt includes the [ExternalDatabase](#ExternalDatabase) class as a subclass of the `ct:ExternalDocument`. This class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. \n\nIt also includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers."@en-GB .
+<https://w3id.org/exdoc> <http://www.w3.org/2002/07/owl#versionInfo> "v0.4" .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/source> <https://github.com/RUB-Informatik-im-Bauwesen/exdoc> .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/creator> _:Baed1caca1fdfb51c2437f9b931834f26 .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/rights> "Copyright 2022 by Chair of Computing in Engineering, Ruhr University Bochum" .
+<https://w3id.org/exdoc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+<https://w3id.org/exdoc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/publisher> _:B885a7ed7b8cc0c1af4f5fbcd723034c9 .
+<https://w3id.org/exdoc> <http://www.w3.org/2004/02/skos/core#historyNote> "\n  v0.3: adding `PayloadProxy` class\n\n  v0.3: adding `databaseMapping` reference\n\n  v0.2: adding `databaseType` and `databaseQueryLanguage`\n\n  v0.1: initial ontology\n\n  " .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/modified> "2022-08-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/exdoc> <http://purl.org/vocab/vann/preferredNamespacePrefix> "exdc" .
+<https://w3id.org/exdoc> <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/exdoc> .
+<https://w3id.org/exdoc> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+_:B885a7ed7b8cc0c1af4f5fbcd723034c9 <http://xmlns.com/foaf/0.1/homepage> <http://www.inf.bi.rub.de> .
+_:B885a7ed7b8cc0c1af4f5fbcd723034c9 <http://xmlns.com/foaf/0.1/name> "Lehrstuhl Informatik im Bauwesen" .
+_:B885a7ed7b8cc0c1af4f5fbcd723034c9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+_:B6934c6b0X2Dc0f5X2D4513X2Da116X2D6168680c00ff <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/exdoc#databaseQueryLanguage> .
+_:B6934c6b0X2Dc0f5X2D4513X2Da116X2D6168680c00ff <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B6934c6b0X2Dc0f5X2D4513X2Da116X2D6168680c00ff <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

@@ -1,0 +1,283 @@
+{
+  "@graph" : [ {
+    "@id" : "_:b0",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : "exdoc:databaseConnectionString"
+  }, {
+    "@id" : "_:b1",
+    "identifier" : "https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en",
+    "name" : "Ruhr University Bochum"
+  }, {
+    "@id" : "_:b2",
+    "@type" : "sdo:Person",
+    "email" : "mailto:philipp.hagedorn-n6v@rub.de",
+    "identifier" : "https://orcid.org/0000-0002-6249-243X",
+    "memberOf" : "_:b1",
+    "name" : "Philipp Hagedorn"
+  }, {
+    "@id" : "_:b3",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : "https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url"
+  }, {
+    "@id" : "_:b4",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : "exdoc:databaseMapping"
+  }, {
+    "@id" : "_:b5",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : "exdoc:databaseType"
+  }, {
+    "@id" : "_:b6",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : "exdoc:databaseName"
+  }, {
+    "@id" : "_:b7",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : "exdoc:databaseQueryLanguage"
+  }, {
+    "@id" : "_:b8",
+    "@type" : "foaf:Organization",
+    "homepage" : "http://www.inf.bi.rub.de",
+    "foaf:name" : "Lehrstuhl Informatik im Bauwesen"
+  }, {
+    "@id" : "https://w3id.org/exdoc",
+    "@type" : [ "voaf:Vocabulary", "owl:Ontology" ],
+    "creator" : "_:b2",
+    "description" : {
+      "@language" : "en-gb",
+      "@value" : "This ontology provides an extension for document types for the [ISO 21597 ICDD Part 1](https://www.iso.org/standard/74389.html)  Container ontology `ct: <`[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#](https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf)`>`.\n\nThe preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc).  \n\nIt includes the [ExternalDatabase](#ExternalDatabase) class as a subclass of the `ct:ExternalDocument`. This class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. \n\nIt also includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers."
+    },
+    "issued" : "2021-05-08",
+    "license" : "https://creativecommons.org/licenses/by/4.0/",
+    "modified" : "2022-08-02",
+    "publisher" : "_:b8",
+    "rights" : "Copyright 2022 by Chair of Computing in Engineering, Ruhr University Bochum",
+    "source" : "https://github.com/RUB-Informatik-im-Bauwesen/exdoc",
+    "title" : {
+      "@language" : "en-gb",
+      "@value" : "Extension for document types for the ISO 21597 ICDD Part 1 Container ontology"
+    },
+    "preferredNamespacePrefix" : "exdc",
+    "preferredNamespaceUri" : "https://w3id.org/exdoc",
+    "versionIRI" : "https://w3id.org/exdoc",
+    "versionInfo" : "v0.4",
+    "historyNote" : "\n  v0.3: adding `PayloadProxy` class\n\n  v0.3: adding `databaseMapping` reference\n\n  v0.2: adding `databaseType` and `databaseQueryLanguage`\n\n  v0.1: initial ontology\n\n  "
+  }, {
+    "@id" : "exdoc:ExternalDatabase",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "a proxy document referencing to an external data source with a connection string"
+    },
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "External Database"
+    },
+    "subClassOf" : [ "https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument", "_:b7", "_:b4", "_:b6", "_:b5", "_:b0" ],
+    "disjointWith" : "exdoc:PayloadProxy"
+  }, {
+    "@id" : "exdoc:PayloadProxy",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "a proxy document referencing to payload triples using the base uri of the triples file"
+    },
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "Payload Proxy"
+    },
+    "subClassOf" : [ "https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument", "_:b3" ],
+    "disjointWith" : "exdoc:ExternalDatabase"
+  }, {
+    "@id" : "exdoc:databaseConnectionString",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "A database connection string is a string that specifies information about a data source and the means of connecting to it from an ICDD. It can be passed to an underlying driver or provider in order to initiate the connection. Warning: The connection string holds sensitive information."
+    },
+    "domain" : "exdoc:ExternalDatabase",
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "connection string"
+    },
+    "range" : "xsd:string"
+  }, {
+    "@id" : "exdoc:databaseMapping",
+    "@type" : "owl:ObjectProperty",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "The mapping file, which allows for the generation of structured RDF-based data from the specified database. This file also needs to be specified within the respective container."
+    },
+    "domain" : "exdoc:ExternalDatabase",
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "database mapping"
+    },
+    "range" : "https://standards.iso.org/iso/21597/-1/ed-1/en/Container#Document"
+  }, {
+    "@id" : "exdoc:databaseName",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "The database name is used to adress the correct mapping from the mapping file to a certain database within the connection string."
+    },
+    "domain" : "exdoc:ExternalDatabase",
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "database name"
+    },
+    "range" : "xsd:string",
+    "subPropertyOf" : "https://standards.iso.org/iso/21597/-1/ed-1/en/Container#name"
+  }, {
+    "@id" : "exdoc:databaseQueryLanguage",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "The query language, which can be used to retrieve information from the specified database."
+    },
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "query language"
+    },
+    "range" : "xsd:string"
+  }, {
+    "@id" : "exdoc:databaseType",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en-gb",
+      "@value" : "The type of database that is specified, e.g. MySQL, NoSQL, and others."
+    },
+    "domain" : "exdoc:ExternalDatabase",
+    "label" : {
+      "@language" : "en-gb",
+      "@value" : "database type"
+    },
+    "range" : "xsd:string"
+  } ],
+  "@context" : {
+    "domain" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type" : "@id"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "range" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type" : "@id"
+    },
+    "onProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onProperty",
+      "@type" : "@id"
+    },
+    "cardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#cardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "name" : {
+      "@id" : "https://schema.org/name"
+    },
+    "identifier" : {
+      "@id" : "https://schema.org/identifier",
+      "@type" : "@id"
+    },
+    "memberOf" : {
+      "@id" : "https://schema.org/memberOf",
+      "@type" : "@id"
+    },
+    "email" : {
+      "@id" : "https://schema.org/email",
+      "@type" : "@id"
+    },
+    "disjointWith" : {
+      "@id" : "http://www.w3.org/2002/07/owl#disjointWith",
+      "@type" : "@id"
+    },
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type" : "@id"
+    },
+    "maxCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#maxCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "subPropertyOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "@type" : "@id"
+    },
+    "versionIRI" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionIRI",
+      "@type" : "@id"
+    },
+    "issued" : {
+      "@id" : "http://purl.org/dc/terms/issued",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "source" : {
+      "@id" : "http://purl.org/dc/terms/source",
+      "@type" : "@id"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator",
+      "@type" : "@id"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/terms/publisher",
+      "@type" : "@id"
+    },
+    "historyNote" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#historyNote"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "preferredNamespacePrefix" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "preferredNamespaceUri" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
+      "@type" : "@id"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license",
+      "@type" : "@id"
+    },
+    "homepage" : {
+      "@id" : "http://xmlns.com/foaf/0.1/homepage",
+      "@type" : "@id"
+    },
+    "exdoc" : "https://w3id.org/exdoc#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "skos" : "http://www.w3.org/2004/02/skos/core#",
+    "voaf" : "http://purl.org/vocommons/voaf#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "vann" : "http://purl.org/vocab/vann/",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "dc" : "http://purl.org/dc/terms/",
+    "sdo" : "https://schema.org/"
+  }
+}
