@@ -22,47 +22,50 @@
       sdo:identifier <https://orcid.org/0000-0002-6249-243X> ;
       sdo:memberOf [
           sdo:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en> ;
-          sdo:name "Ruhr University Bochum" ;
+          sdo:name "Ruhr-Universitaet Bochum" ;
         ] ;
       sdo:name "Philipp Hagedorn" ;
     ] ;
   dc:description """This ontology provides an extension for document types for the [ISO 21597 ICDD Part 1](https://www.iso.org/standard/74389.html)  Container ontology `ct: <`[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#](https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf)`>`.
 
-The preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc).  
+The preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc). 
 
-It includes the [ExternalDatabase](#ExternalDatabase) class as a subclass of the `ct:ExternalDocument`. This class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. 
+It  includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.
+It also includes the [ExternalRelationalDatabase](#ExternalRelationalDatabase) and [ExternalInfluxDatabase](#ExternalInfluxDatabase) classes as a subclasses of the `ct:ExternalDocument`. The [ExternalRelationalDatabase](#ExternalRelationalDatabase) class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. The [ExternalInfluxDatabase](#ExternalInfluxDatabase) is used to retrieve time-series data from an InfluxDB instance.
 
-It also includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers."""@en-GB ;
+"""@en-GB ;
   dc:issued "2021-05-08"^^xsd:date ;
   dc:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dc:modified "2022-08-02"^^xsd:date ;
+  dc:modified "2023-05-25"^^xsd:date ;
   dc:publisher [
       rdf:type foaf:Organization ;
       foaf:homepage <http://www.inf.bi.rub.de> ;
-      foaf:name "Lehrstuhl Informatik im Bauwesen" ;
+      foaf:name "Chair of Computing in Engineering" ;
     ] ;
-  dc:rights "Copyright 2022 by Chair of Computing in Engineering, Ruhr University Bochum" ;
+  dc:rights "Copyright 2023 by Chair of Computing in Engineering, Ruhr University Bochum" ;
   dc:source <https://github.com/RUB-Informatik-im-Bauwesen/exdoc> ;
   dc:title "Extension for document types for the ISO 21597 ICDD Part 1 Container ontology"@en-GB ;
-  vann:preferredNamespacePrefix "exdc" ;
+  vann:preferredNamespacePrefix "exdoc" ;
   vann:preferredNamespaceUri <https://w3id.org/exdoc> ;
   owl:versionIRI <https://w3id.org/exdoc> ;
-  owl:versionInfo "v0.4" ;
+  owl:versionInfo "v0.5" ;
   skos:historyNote """
-  v0.3: adding `PayloadProxy` class
+  v0.5: added `ExternalInfluxDatabase` class
 
-  v0.3: adding `databaseMapping` reference
+  v0.4: added `PayloadProxy` class
 
-  v0.2: adding `databaseType` and `databaseQueryLanguage`
+  v0.3: added `databaseMapping` reference
+
+  v0.2: added `databaseType` and `databaseQueryLanguage`
 
   v0.1: initial ontology
 
   """ ;
 .
-exdoc:ExternalDatabase
+exdoc:ExternalRelationalDatabase
   rdf:type owl:Class ;
   rdfs:comment "a proxy document referencing to an external data source with a connection string"@en-GB ;
-  rdfs:label "External Database"@en-GB ;
+  rdfs:label "External Relational Database"@en-GB ;
   rdfs:subClassOf <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument> ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
@@ -90,7 +93,43 @@ exdoc:ExternalDatabase
       owl:onProperty exdoc:databaseMapping ;
     ] ;
   owl:disjointWith exdoc:PayloadProxy ;
+  owl:disjointWith exdoc:ExternalInfluxDatabase ;
 .
+
+exdoc:ExternalInfluxDatabase
+  rdf:type owl:Class ;
+  rdfs:comment "a proxy document referencing to an external InfluxDB instance"@en-GB ;
+  rdfs:label "External Influx Database"@en-GB ;
+  rdfs:subClassOf <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty exdoc:influxServer ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty exdoc:influxOrganisation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty exdoc:influxBucket ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty exdoc:influxSensorTag ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty exdoc:influxMeasurement ;
+    ] ;
+  owl:disjointWith exdoc:PayloadProxy ;
+  owl:disjointWith exdoc:ExternalRelationalDatabase ;
+.
+
 exdoc:PayloadProxy
   rdf:type owl:Class ;
   rdfs:comment "a proxy document referencing to payload triples using the base uri of the triples file"@en-GB ;
@@ -101,26 +140,27 @@ exdoc:PayloadProxy
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url> ;
     ] ;
-  owl:disjointWith exdoc:ExternalDatabase ;
+  owl:disjointWith exdoc:ExternalRelationalDatabase ;
+  owl:disjointWith exdoc:ExternalInfluxDatabase ;
 .
 exdoc:databaseConnectionString
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "A database connection string is a string that specifies information about a data source and the means of connecting to it from an ICDD. It can be passed to an underlying driver or provider in order to initiate the connection. Warning: The connection string holds sensitive information."@en-GB ;
-  rdfs:domain exdoc:ExternalDatabase ;
+  rdfs:domain exdoc:ExternalRelationalDatabase ;
   rdfs:label "connection string"@en-GB ;
   rdfs:range xsd:string ;
 .
 exdoc:databaseMapping
   rdf:type owl:ObjectProperty ;
   rdfs:comment "The mapping file, which allows for the generation of structured RDF-based data from the specified database. This file also needs to be specified within the respective container."@en-GB ;
-  rdfs:domain exdoc:ExternalDatabase ;
+  rdfs:domain exdoc:ExternalRelationalDatabase ;
   rdfs:label "database mapping"@en-GB ;
   rdfs:range <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#Document> ;
 .
 exdoc:databaseName
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "The database name is used to adress the correct mapping from the mapping file to a certain database within the connection string."@en-GB ;
-  rdfs:domain exdoc:ExternalDatabase ;
+  rdfs:domain exdoc:ExternalRelationalDatabase ;
   rdfs:label "database name"@en-GB ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#name> ;
@@ -129,12 +169,49 @@ exdoc:databaseQueryLanguage
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "The query language, which can be used to retrieve information from the specified database."@en-GB ;
   rdfs:label "query language"@en-GB ;
+  rdfs:domain exdoc:ExternalRelationalDatabase ;
   rdfs:range xsd:string ;
 .
 exdoc:databaseType
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "The type of database that is specified, e.g. MySQL, NoSQL, and others."@en-GB ;
-  rdfs:domain exdoc:ExternalDatabase ;
+  rdfs:domain exdoc:ExternalRelationalDatabase ;
   rdfs:label "database type"@en-GB ;
+  rdfs:range xsd:string ;
+.
+exdoc:influxServer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The InfluxDB server URL."@en-GB ;
+  rdfs:subPropertyOf <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url>;
+  rdfs:domain exdoc:ExternalInfluxDatabase ;
+  rdfs:label "influx server"@en-GB ;
+  rdfs:range xsd:string ;
+.
+exdoc:influxOrganisation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The InfluxDB organisation."@en-GB ;
+  rdfs:domain exdoc:ExternalInfluxDatabase ;
+  rdfs:label "influx organisation"@en-GB ;
+  rdfs:range xsd:string ;
+.
+exdoc:influxBucket
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The InfluxDB bucket."@en-GB ;
+  rdfs:domain exdoc:ExternalInfluxDatabase ;
+  rdfs:label "influx bucket"@en-GB ;
+  rdfs:range xsd:string ;
+.
+exdoc:influxMeasurement
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The InfluxDB measurement filter, e.g., temperature, humidity. Can be used for filtering results in a flux query."@en-GB ;
+  rdfs:domain exdoc:ExternalInfluxDatabase ;
+  rdfs:label "influx measurement"@en-GB ;
+  rdfs:range xsd:string ;
+.
+exdoc:influxSensorTag
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The InfluxDB sensor tag. Can be used for filtering results in a flux query using tags."@en-GB ;
+  rdfs:domain exdoc:ExternalInfluxDatabase ;
+  rdfs:label "influx sensor tag"@en-GB ;
   rdfs:range xsd:string ;
 .

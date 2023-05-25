@@ -220,7 +220,7 @@
                 "https://schema.org/DefinedTermSet"
             ],
             "https://schema.org/description": [{
-                "@value": "<p>This ontology provides an extension for document types for the <a href=\"https://www.iso.org/standard/74389.html\">ISO 21597 ICDD Part 1</a>  Container ontology <code>ct: &lt;</code><a href=\"https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf\">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#</a><code>&gt;</code>.</p>\n<p>The preferred namespace prefix is <code>exdoc</code> for the namespace IRI <a href=\"https://w3id.org/exdoc\">https://w3id.org/exdoc</a>.  </p>\n<p>It includes the <a href=\"#ExternalDatabase\">ExternalDatabase</a> class as a subclass of the <code>ct:ExternalDocument</code>. This class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see <a href=\"https://www.w3.org/TR/r2rml/\">W3C R2RML Recommendation</a>). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. </p>\n<p>It also includes the <a href=\"#PayloadProxy\">PayloadProxy</a> class as a subclass of the <code>ct:ExternalDocument</code> class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.</p>"
+                "@value": "<p>This ontology provides an extension for document types for the <a href=\"https://www.iso.org/standard/74389.html\">ISO 21597 ICDD Part 1</a>  Container ontology <code>ct: &lt;</code><a href=\"https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf\">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#</a><code>&gt;</code>.</p>\n<p>The preferred namespace prefix is <code>exdoc</code> for the namespace IRI <a href=\"https://w3id.org/exdoc\">https://w3id.org/exdoc</a>. </p>\n<p>It  includes the <a href=\"#PayloadProxy\">PayloadProxy</a> class as a subclass of the <code>ct:ExternalDocument</code> class for registering payload triples from the \"payload triples\" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.\nIt also includes the <a href=\"#ExternalRelationalDatabase\">ExternalRelationalDatabase</a> and <a href=\"#ExternalInfluxDatabase\">ExternalInfluxDatabase</a> classes as a subclasses of the <code>ct:ExternalDocument</code>. The <a href=\"#ExternalRelationalDatabase\">ExternalRelationalDatabase</a> class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see <a href=\"https://www.w3.org/TR/r2rml/\">W3C R2RML Recommendation</a>). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. The <a href=\"#ExternalInfluxDatabase\">ExternalInfluxDatabase</a> is used to retrieve time-series data from an InfluxDB instance.</p>"
             }],
             "https://schema.org/license": [{
                 "@id": "https://creativecommons.org/licenses/by/4.0/"
@@ -229,7 +229,7 @@
                 "@value": "Extension for document types for the ISO 21597 ICDD Part 1 Container ontology"
             }],
             "https://schema.org/rights": [{
-                "@value": "&copy; 2022 by Chair of Computing in Engineering, Ruhr University Bochum"
+                "@value": "&copy; 2023 by Chair of Computing in Engineering, Ruhr University Bochum"
             }]
         }]
     </script>
@@ -250,7 +250,7 @@
             <dt>Publisher(s)</dt>
             <dd>
 
-                <a href="http://www.inf.bi.rub.de">Lehrstuhl Informatik im Bauwesen</a><br/>
+                <a href="http://www.inf.bi.rub.de">Chair of Computing in Engineering</a><br/>
             </dd>
             <dt>Creator(s)</dt>
             <dd>
@@ -276,40 +276,41 @@
     </g>
 </svg></a> (
                 <a href="mailto:philipp.hagedorn-n6v@rub.de">philipp.hagedorn-n6v@rub.de</a>) of
-                <a href="https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en">Ruhr University Bochum</a><br/>
+                <a href="https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en">Ruhr-Universitaet Bochum</a><br/>
             </dd>
             <dt>Modified</dt>
-            <dd>2022-08-02</dd>
+            <dd>2023-05-25</dd>
             <dt>Issued</dt>
             <dd>2021-05-08</dd>
             <dt>Version Information</dt>
-            <dd>v0.4</dd>
+            <dd>v0.5</dd>
             <dt>License &amp; Rights</dt>
             <dd>
-                <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a><br /> &copy; 2022 by Chair of Computing in Engineering, Ruhr University Bochum
+                <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a><br /> &copy; 2023 by Chair of Computing in Engineering, Ruhr University Bochum
             </dd>
             <dt>Source</dt>
             <dd><a href="https://github.com/RUB-Informatik-im-Bauwesen/exdoc">https://github.com/RUB-Informatik-im-Bauwesen/exdoc</a></dd>
             <dt>Ontology RDF</dt>
             <dd><a href="ExtendedDocument.ttl">RDF (turtle)</a></dd>
             <dd><a href="ExtendedDocument.rdf">RDF (XML)</a></dd>
-            <dd><a href="ExtendedDocument.nt">N-Triples</a></dd>
-            <dd><a href="ExtendedDocument.jsonld">JSON-LD</a></dd>
+            <dd><a href="ExtendedDocument.nt">RDF (N-Triples)</a></dd>
+            <dd><a href="ExtendedDocument.jsonld">RDF (JSON-LD)</a></dd>
         </dl>
         <h2>Description</h2>
         <div id="description">
             <p>This ontology provides an extension for document types for the <a href="https://www.iso.org/standard/74389.html">ISO 21597 ICDD Part 1</a> Container ontology <code>ct: &lt;</code><a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#</a><code>&gt;</code>.</p>
             <p>The preferred namespace prefix is <code>exdoc</code> for the namespace IRI <a href="https://w3id.org/exdoc">https://w3id.org/exdoc</a>. </p>
-            <p>It includes the <a href="#ExternalDatabase">ExternalDatabase</a> class as a subclass of the <code>ct:ExternalDocument</code>. This class can be used to provide information and connection details from an existing relational database, e.g.,
-                to retrieve data from DB and convert it into payload triples using R2RML mappings (see <a href="https://www.w3.org/TR/r2rml/">W3C R2RML Recommendation</a>). When working with databases in ICDD container, be sure you do not store credentials
-                for the database in the connection string but in a secure credentials store. </p>
-            <p>It also includes the <a href="#PayloadProxy">PayloadProxy</a> class as a subclass of the <code>ct:ExternalDocument</code> class for registering payload triples from the "payload triples" folder. Instances of these classes can be used to define
-                link elements for RDF-based data in ICDD containers.</p>
+            <p>It includes the <a href="#PayloadProxy">PayloadProxy</a> class as a subclass of the <code>ct:ExternalDocument</code> class for registering payload triples from the "payload triples" folder. Instances of these classes can be used to define
+                link elements for RDF-based data in ICDD containers. It also includes the <a href="#ExternalRelationalDatabase">ExternalRelationalDatabase</a> and <a href="#ExternalInfluxDatabase">ExternalInfluxDatabase</a> classes as a subclasses of
+                the <code>ct:ExternalDocument</code>. The <a href="#ExternalRelationalDatabase">ExternalRelationalDatabase</a> class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data
+                from DB and convert it into payload triples using R2RML mappings (see <a href="https://www.w3.org/TR/r2rml/">W3C R2RML Recommendation</a>). When working with databases in ICDD container, be sure you do not store credentials for the database
+                in the connection string but in a secure credentials store. The <a href="#ExternalInfluxDatabase">ExternalInfluxDatabase</a> is used to retrieve time-series data from an InfluxDB instance.</p>
         </div>
         <p><strong>History Note:</strong>
-            <p>v0.4: adding <code>PayloadProxy</code> class</p>
-            <p>v0.3: adding <code>databaseMapping</code> reference</p>
-            <p>v0.2: adding <code>databaseType</code> and <code>databaseQueryLanguage</code></p>
+            <p>v0.5: added <code>ExternalInfluxDatabase</code> class</p>
+            <p>v0.4: added <code>PayloadProxy</code> class</p>
+            <p>v0.3: added <code>databaseMapping</code> reference</p>
+            <p>v0.2: added <code>databaseType</code> and <code>databaseQueryLanguage</code></p>
             <p>v0.1: initial ontology</p>
         </p>
     </section>
@@ -323,18 +324,67 @@
             <li><a href="#legend">Legend</a></li>
         </ol>
     </section>
+    <section id="overview">
+        <h2>Overview</h2>
+        <div class="figure">
+            <img style="width:800px;" src="ExtendedDocument.svg"></img>
+            <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+        </div>
+    </section>
     <section id="classes">
         <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <ul class="hlist">
-            <li><a href="#ExternalDatabase">External Database</a></li>
+            <li><a href="#ExternalInfluxDatabase">External Influx Database</a></li>
+            <li><a href="#ExternalRelationalDatabase">External Relational Database</a></li>
             <li><a href="#PayloadProxy">Payload Proxy</a></li>
         </ul>
-        <div class="entity class" id="ExternalDatabase">
-            <h3>External Database<sup title="class" class="sup-c">c</sup></h3>
+        <div class="entity class" id="ExternalInfluxDatabase">
+            <h3>External Influx Database<sup title="class" class="sup-c">c</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>https://w3id.org/exdoc#ExternalDatabase</code></td>
+                    <td><code>https://w3id.org/exdoc#ExternalInfluxDatabase</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        <p>a proxy document referencing to an external InfluxDB instance</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Super-classes</th>
+                    <td>
+                        <a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument</a><sup class="sup-c" title="class">c</sup><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Restrictions</th>
+                    <td>
+                        <a href="#influxorganisation">exdoc:influxOrganisation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#influxsensortag">exdoc:influxSensorTag</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#influxserver">exdoc:influxServer</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#influxmeasurement">exdoc:influxMeasurement</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">min</span> 1<br/>
+                        <a href="#influxbucket">exdoc:influxBucket</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>In domain of</th>
+                    <td>
+                        <a href="#influxmeasurement">exdoc:influxMeasurement</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#influxbucket">exdoc:influxBucket</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#influxsensortag">exdoc:influxSensorTag</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#influxorganisation">exdoc:influxOrganisation</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#influxserver">exdoc:influxServer</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity class" id="ExternalRelationalDatabase">
+            <h3>External Relational Database<sup title="class" class="sup-c">c</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#ExternalRelationalDatabase</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -351,20 +401,21 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#databasetype">exdoc:databaseType</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#connectionstring">exdoc:databaseConnectionString</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#databasename">exdoc:databaseName</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#databasemapping">exdoc:databaseMapping</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#querylanguage">exdoc:databaseQueryLanguage</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#databasemapping">exdoc:databaseMapping</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                        <a href="#databasename">exdoc:databaseName</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#databasetype">exdoc:databaseType</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#connectionstring">exdoc:databaseConnectionString</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#querylanguage">exdoc:databaseQueryLanguage</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                         <a href="#databasemapping">exdoc:databaseMapping</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#databasetype">exdoc:databaseType</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                         <a href="#databasename">exdoc:databaseName</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#connectionstring">exdoc:databaseConnectionString</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -418,7 +469,7 @@
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#ExternalDatabase">exdoc:ExternalDatabase</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#ExternalRelationalDatabase">exdoc:ExternalRelationalDatabase</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -438,6 +489,11 @@
             <li><a href="#databasename">database name</a></li>
             <li><a href="#querylanguage">query language</a></li>
             <li><a href="#databasetype">database type</a></li>
+            <li><a href="#influxbucket">influx bucket</a></li>
+            <li><a href="#influxmeasurement">influx measurement</a></li>
+            <li><a href="#influxorganisation">influx organisation</a></li>
+            <li><a href="#influxsensortag">influx sensor tag</a></li>
+            <li><a href="#influxserver">influx server</a></li>
         </ul>
         <div class="entity property" id="connectionstring">
             <h3>connection string<sup title="datatype property" class="sup-dp">dp</sup></h3>
@@ -456,7 +512,7 @@
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#ExternalDatabase">exdoc:ExternalDatabase</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#ExternalRelationalDatabase">exdoc:ExternalRelationalDatabase</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -489,7 +545,7 @@
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#ExternalDatabase">exdoc:ExternalDatabase</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#ExternalRelationalDatabase">exdoc:ExternalRelationalDatabase</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -511,6 +567,12 @@
                     <th>Description</th>
                     <td>
                         The query language, which can be used to retrieve information from the specified database.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalRelationalDatabase">exdoc:ExternalRelationalDatabase</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -537,7 +599,148 @@
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#ExternalDatabase">exdoc:ExternalDatabase</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#ExternalRelationalDatabase">exdoc:ExternalRelationalDatabase</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="influxbucket">
+            <h3>influx bucket<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#influxBucket</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The InfluxDB bucket.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalInfluxDatabase">exdoc:ExternalInfluxDatabase</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="influxmeasurement">
+            <h3>influx measurement<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#influxMeasurement</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The InfluxDB measurement filter, e.g., temperature, humidity. Can be used for filtering results in a flux query.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalInfluxDatabase">exdoc:ExternalInfluxDatabase</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="influxorganisation">
+            <h3>influx organisation<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#influxOrganisation</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The InfluxDB organisation.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalInfluxDatabase">exdoc:ExternalInfluxDatabase</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="influxsensortag">
+            <h3>influx sensor tag<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#influxSensorTag</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The InfluxDB sensor tag. Can be used for filtering results in a flux query using tags.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalInfluxDatabase">exdoc:ExternalInfluxDatabase</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="influxserver">
+            <h3>influx server<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/exdoc#influxServer</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The InfluxDB server URL.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Super-properties</th>
+                    <td>
+                        <a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url">https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#ExternalInfluxDatabase">exdoc:ExternalInfluxDatabase</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>

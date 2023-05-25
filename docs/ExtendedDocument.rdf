@@ -11,152 +11,221 @@
     xmlns:vann="http://purl.org/vocab/vann/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-  xml:base="https://w3id.org/exdoc">
-  <voaf:Vocabulary rdf:about="">
+  xml:base="https://w3id.org/exdoc" > 
+  <rdf:Description rdf:nodeID="A0">
+    <owl:onProperty rdf:resource="#databaseQueryLanguage"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#influxServer">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en-GB">influx server</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url"/>
+    <rdfs:comment xml:lang="en-GB">The InfluxDB server URL.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ExternalRelationalDatabase">
+    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument"/>
+    <owl:disjointWith rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:subClassOf rdf:nodeID="A2"/>
+    <rdfs:subClassOf rdf:nodeID="A3"/>
+    <rdfs:label xml:lang="en-GB">External Relational Database</rdfs:label>
+    <rdfs:comment xml:lang="en-GB">a proxy document referencing to an external data source with a connection string</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="A4"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#PayloadProxy"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <owl:onProperty rdf:resource="#databaseType"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
     <owl:versionIRI rdf:resource=""/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2021-05-08</dc:issued>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-05-08</dc:issued>
     <dc:title xml:lang="en-GB">Extension for document types for the ISO 21597 ICDD Part 1 Container ontology</dc:title>
-    <dc:description xml:lang="en-GB">This ontology provides an extension for document types for the [ISO 21597 ICDD Part 1](https://www.iso.org/standard/74389.html)  Container ontology `ct: &lt;`[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#](https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf)`&gt;`.
-
-The preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc).  
-
-It includes the [ExternalDatabase](#ExternalDatabase) class as a subclass of the `ct:ExternalDocument`. This class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. 
-
-It also includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the "payload triples" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.</dc:description>
-    <owl:versionInfo>v0.4</owl:versionInfo>
-    <dc:source rdf:resource="https://github.com/RUB-Informatik-im-Bauwesen/exdoc"/>
-    <dc:creator>
-      <sdo:Person>
-        <sdo:identifier rdf:resource="https://orcid.org/0000-0002-6249-243X"/>
-        <sdo:memberOf rdf:parseType="Resource">
-          <sdo:name>Ruhr University Bochum</sdo:name>
-          <sdo:identifier rdf:resource="https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en"/>
-        </sdo:memberOf>
-        <sdo:email rdf:resource="mailto:philipp.hagedorn-n6v@rub.de"/>
-        <sdo:name>Philipp Hagedorn</sdo:name>
-      </sdo:Person>
-    </dc:creator>
-    <dc:rights>Copyright 2022 by Chair of Computing in Engineering, Ruhr University Bochum</dc:rights>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <dc:publisher>
-      <foaf:Organization>
-        <foaf:homepage rdf:resource="http://www.inf.bi.rub.de"/>
-        <foaf:name>Lehrstuhl Informatik im Bauwesen</foaf:name>
-      </foaf:Organization>
-    </dc:publisher>
-    <skos:historyNote>
-  v0.3: adding `PayloadProxy` class
-
-  v0.3: adding `databaseMapping` reference
-
-  v0.2: adding `databaseType` and `databaseQueryLanguage`
-
-  v0.1: initial ontology
-
+    <skos:historyNote>&#xD;
+  v0.5: added `ExternalInfluxDatabase` class&#xD;
+&#xD;
+  v0.4: added `PayloadProxy` class&#xD;
+&#xD;
+  v0.3: added `databaseMapping` reference&#xD;
+&#xD;
+  v0.2: added `databaseType` and `databaseQueryLanguage`&#xD;
+&#xD;
+  v0.1: initial ontology&#xD;
+&#xD;
   </skos:historyNote>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2022-08-02</dc:modified>
-    <vann:preferredNamespacePrefix>exdc</vann:preferredNamespacePrefix>
+    <dc:source rdf:resource="https://github.com/RUB-Informatik-im-Bauwesen/exdoc"/>
+    <dc:publisher rdf:nodeID="A5"/>
+    <owl:versionInfo>v0.5</owl:versionInfo>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dc:creator rdf:nodeID="A6"/>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-05-25</dc:modified>
+    <dc:description xml:lang="en-GB">This ontology provides an extension for document types for the [ISO 21597 ICDD Part 1](https://www.iso.org/standard/74389.html)  Container ontology `ct: &lt;`[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#](https://standards.iso.org/iso/21597/-1/ed-1/en/Container.rdf)`&gt;`.&#xD;
+&#xD;
+The preferred namespace prefix is `exdoc` for the namespace IRI [https://w3id.org/exdoc](https://w3id.org/exdoc). &#xD;
+&#xD;
+It  includes the [PayloadProxy](#PayloadProxy) class as a subclass of the `ct:ExternalDocument` class for registering payload triples from the "payload triples" folder. Instances of these classes can be used to define link elements for RDF-based data in ICDD containers.&#xD;
+It also includes the [ExternalRelationalDatabase](#ExternalRelationalDatabase) and [ExternalInfluxDatabase](#ExternalInfluxDatabase) classes as a subclasses of the `ct:ExternalDocument`. The [ExternalRelationalDatabase](#ExternalRelationalDatabase) class can be used to provide information and connection details from an existing relational database, e.g., to retrieve data from DB and convert it into payload triples using R2RML mappings (see [W3C R2RML Recommendation](https://www.w3.org/TR/r2rml/)). When working with databases in ICDD container, be sure you do not store credentials for the database in the connection string but in a secure credentials store. The [ExternalInfluxDatabase](#ExternalInfluxDatabase) is used to retrieve time-series data from an InfluxDB instance.&#xD;
+&#xD;
+</dc:description>
     <vann:preferredNamespaceUri rdf:resource=""/>
     <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-  </voaf:Vocabulary>
-  <owl:Class rdf:ID="PayloadProxy">
-    <owl:disjointWith>
-      <owl:Class rdf:ID="ExternalDatabase"/>
-    </owl:disjointWith>
-    <rdfs:comment xml:lang="en-GB">a proxy document referencing to payload triples using the base uri of the triples file</rdfs:comment>
-    <rdfs:label xml:lang="en-GB">Payload Proxy</rdfs:label>
-    <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url"/>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#ExternalDatabase">
-    <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument"/>
-    <rdfs:comment xml:lang="en-GB">a proxy document referencing to an external data source with a connection string</rdfs:comment>
-    <owl:disjointWith rdf:resource="#PayloadProxy"/>
-    <rdfs:label xml:lang="en-GB">External Database</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="databaseQueryLanguage"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="databaseMapping"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="databaseName"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="databaseType"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="databaseConnectionString"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="#databaseMapping">
-    <rdfs:domain rdf:resource="#ExternalDatabase"/>
-    <rdfs:comment xml:lang="en-GB">The mapping file, which allows for the generation of structured RDF-based data from the specified database. This file also needs to be specified within the respective container.</rdfs:comment>
-    <rdfs:label xml:lang="en-GB">database mapping</rdfs:label>
-    <rdfs:range rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#Document"/>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="#databaseQueryLanguage">
-    <rdfs:comment xml:lang="en-GB">The query language, which can be used to retrieve information from the specified database.</rdfs:comment>
-    <rdfs:label xml:lang="en-GB">query language</rdfs:label>
+    <vann:preferredNamespacePrefix>exdoc</vann:preferredNamespacePrefix>
+    <dc:rights>Copyright 2023 by Chair of Computing in Engineering, Ruhr University Bochum</dc:rights>
+  </rdf:Description>
+  <rdf:Description rdf:about="#databaseType">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="#databaseConnectionString">
-    <rdfs:domain rdf:resource="#ExternalDatabase"/>
-    <rdfs:comment xml:lang="en-GB">A database connection string is a string that specifies information about a data source and the means of connecting to it from an ICDD. It can be passed to an underlying driver or provider in order to initiate the connection. Warning: The connection string holds sensitive information.</rdfs:comment>
-    <rdfs:label xml:lang="en-GB">connection string</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="#databaseType">
-    <rdfs:domain rdf:resource="#ExternalDatabase"/>
-    <rdfs:comment xml:lang="en-GB">The type of database that is specified, e.g. MySQL, NoSQL, and others.</rdfs:comment>
     <rdfs:label xml:lang="en-GB">database type</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The type of database that is specified, e.g. MySQL, NoSQL, and others.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <owl:onProperty rdf:resource="#influxSensorTag"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#influxMeasurement">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="#databaseName">
-    <rdfs:comment xml:lang="en-GB">The database name is used to adress the correct mapping from the mapping file to a certain database within the connection string.</rdfs:comment>
+    <rdfs:label xml:lang="en-GB">influx measurement</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The InfluxDB measurement filter, e.g., temperature, humidity. Can be used for filtering results in a flux query.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <owl:onProperty rdf:resource="#databaseConnectionString"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#influxOrganisation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en-GB">influx organisation</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The InfluxDB organisation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <owl:onProperty rdf:resource="#influxMeasurement"/>
+    <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <owl:onProperty rdf:resource="#databaseName"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#influxBucket">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en-GB">influx bucket</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The InfluxDB bucket.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#databaseName">
     <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#name"/>
-    <rdfs:label xml:lang="en-GB">database name</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#ExternalDatabase"/>
-  </owl:DatatypeProperty>
+    <rdfs:label xml:lang="en-GB">database name</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The database name is used to adress the correct mapping from the mapping file to a certain database within the connection string.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#databaseQueryLanguage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:label xml:lang="en-GB">query language</rdfs:label>
+    <rdfs:comment xml:lang="en-GB">The query language, which can be used to retrieve information from the specified database.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <sdo:name>Philipp Hagedorn</sdo:name>
+    <sdo:memberOf rdf:nodeID="A9"/>
+    <sdo:identifier rdf:resource="https://orcid.org/0000-0002-6249-243X"/>
+    <sdo:email rdf:resource="mailto:philipp.hagedorn-n6v@rub.de"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#databaseConnectionString">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en-GB">connection string</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:comment xml:lang="en-GB">A database connection string is a string that specifies information about a data source and the means of connecting to it from an ICDD. It can be passed to an underlying driver or provider in order to initiate the connection. Warning: The connection string holds sensitive information.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <foaf:name>Chair of Computing in Engineering</foaf:name>
+    <foaf:homepage rdf:resource="http://www.inf.bi.rub.de"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ExternalInfluxDatabase">
+    <rdfs:label xml:lang="en-GB">External Influx Database</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="A8"/>
+    <owl:disjointWith rdf:resource="#PayloadProxy"/>
+    <rdfs:subClassOf rdf:nodeID="A7"/>
+    <owl:disjointWith rdf:resource="#ExternalRelationalDatabase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A10"/>
+    <rdfs:subClassOf rdf:nodeID="A11"/>
+    <rdfs:comment xml:lang="en-GB">a proxy document referencing to an external InfluxDB instance</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument"/>
+    <rdfs:subClassOf rdf:nodeID="A12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <sdo:name>Ruhr-Universitaet Bochum</sdo:name>
+    <sdo:identifier rdf:resource="https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#PayloadProxy">
+    <owl:disjointWith rdf:resource="#ExternalInfluxDatabase"/>
+    <owl:disjointWith rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:subClassOf rdf:nodeID="A13"/>
+    <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#ExternalDocument"/>
+    <rdfs:label xml:lang="en-GB">Payload Proxy</rdfs:label>
+    <rdfs:comment xml:lang="en-GB">a proxy document referencing to payload triples using the base uri of the triples file</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <owl:onProperty rdf:resource="#influxOrganisation"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <owl:onProperty rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#databaseMapping">
+    <rdfs:range rdf:resource="https://standards.iso.org/iso/21597/-1/ed-1/en/Container#Document"/>
+    <rdfs:label xml:lang="en-GB">database mapping</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalRelationalDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The mapping file, which allows for the generation of structured RDF-based data from the specified database. This file also needs to be specified within the respective container.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#influxSensorTag">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en-GB">influx sensor tag</rdfs:label>
+    <rdfs:domain rdf:resource="#ExternalInfluxDatabase"/>
+    <rdfs:comment xml:lang="en-GB">The InfluxDB sensor tag. Can be used for filtering results in a flux query using tags.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <owl:onProperty rdf:resource="#databaseMapping"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <owl:onProperty rdf:resource="#influxBucket"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <owl:onProperty rdf:resource="#influxServer"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
