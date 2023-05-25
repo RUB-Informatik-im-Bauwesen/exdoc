@@ -168,7 +168,7 @@ IRI | `https://w3id.org/exdoc#influxServer`
 Description | The InfluxDB server URL.
 Super-properties |[https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url](https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url)<br />
 Domain(s) |[exdoc:ExternalInfluxDatabase](ExternalInfluxDatabase) (c)<br />
-Range(s) |[xsd:string](http://www.w3.org/2001/XMLSchema#string) (c)<br />
+Range(s) |[xsd:anyUri](http://www.w3.org/2001/XMLSchema#anyUri) (c)<br />
 
 ## Named Individuals
 ## Namespaces

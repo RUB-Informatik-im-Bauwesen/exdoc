@@ -85,7 +85,7 @@ _:B7d3bbd67abe0912cb03629831296e1d4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <https://w3id.org/exdoc#PayloadProxy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 _:Bf2ba7404a19049fedb34e9bcb2fdc6d3 <https://schema.org/name> "Ruhr-Universitaet Bochum" .
 _:Bf2ba7404a19049fedb34e9bcb2fdc6d3 <https://schema.org/identifier> <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en> .
-<https://w3id.org/exdoc#influxServer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/exdoc#influxServer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyUri> .
 <https://w3id.org/exdoc#influxServer> <http://www.w3.org/2000/01/rdf-schema#label> "influx server"@en-GB .
 <https://w3id.org/exdoc#influxServer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/exdoc#ExternalInfluxDatabase> .
 <https://w3id.org/exdoc#influxServer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url> .

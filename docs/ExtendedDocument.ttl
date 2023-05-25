@@ -185,7 +185,7 @@ exdoc:influxServer
   rdfs:subPropertyOf <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#url>;
   rdfs:domain exdoc:ExternalInfluxDatabase ;
   rdfs:label "influx server"@en-GB ;
-  rdfs:range xsd:string ;
+  rdfs:range xsd:anyUri ;
 .
 exdoc:influxOrganisation
   rdf:type owl:DatatypeProperty ;
